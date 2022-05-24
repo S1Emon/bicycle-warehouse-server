@@ -1,7 +1,8 @@
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const express = require('express');
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
+const { send } = require('express/lib/response');
 const port = process.env.PORT || 5000;
 require('dotenv').config();
 
@@ -17,11 +18,18 @@ const run = async () => {
     await client.connect()
     console.log('db connected');
     const productCollection = client.db("bicycleWarehouse").collection("products")
+    const serviceCollection = client.db("bicycleWarehouse").collection("services")
     try {
         // Get data
         app.get('/products', async (req, res) => {
             const query = req.query;
             const result = await productCollection.find(query).toArray()
+            res.send(result);
+        })
+
+        app.get('/services', async (req, res) => {
+            const query = req.query;
+            const result = await serviceCollection.find(query).toArray();
             res.send(result);
         })
         // single data load

@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Sporko 24",
+        "ratings": "5",
+        "reviews": "41",
+        "image": "https://i.ibb.co/bdjHVYV/6.jpg"
+    },
+    {
+        "name": "Adventure Step",
+        "ratings": "4.9",
+        "reviews": "21",
+        "image": "https://i.ibb.co/5MZBVq1/4.jpg"
+    },
+    {
+        "name": "Atroz 1",
+        "ratings": "5",
+        "reviews": "52",
+        "image": "https://i.ibb.co/4WfL2NZ/5.jpg"
+    },
+    {
+        "name": "The E-Bike",
+        "ratings": "4.7",
+        "reviews": "14",
+        "image": "https://i.ibb.co/ww42zm3/3.jpg"
+    },
+    {
+        "name": "Level Commuter",
+        "ratings": "4.5",
+        "reviews": "19",
+        "image": "https://i.ibb.co/zGzB4RL/2.jpg"
+    },
+    {
+        "name": "WFO E9",
+        "ratings": "4.8",
+        "reviews": "33",
+        "image": "https://i.ibb.co/7X2PrwM/1.jpg"
+    }
+]
