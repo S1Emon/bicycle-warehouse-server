@@ -24,15 +24,13 @@ const run = async () => {
             const result = await productCollection.find(query).toArray()
             res.send(result);
         })
-        // single data load system
+        // single data load
         app.get('/product/:id', async (req, res) => {
             const id = req.params.id
             const query = { _id: ObjectId(id) }
             const product = await productCollection.findOne(query)
             res.send(product);
         })
-
-
 
         // Create data
         app.post('/product', async (req, res) => {
@@ -42,6 +40,19 @@ const run = async () => {
         })
 
         //Update Data
+        app.put('/product/:id', async (req, res) => {
+            const id = req.params.id;
+            const data = req.body;
+            const filter = { _id: ObjectId(id) }
+            const option = { upsert: true }
+            const updateDoc = {
+                $set: {
+                    ...data
+                },
+            }
+            const result = await productCollection.updateOne(filter, option, updateDoc);
+            res.send(result);
+        })
 
 
         //Delete Data
