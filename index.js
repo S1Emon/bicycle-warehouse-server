@@ -5,6 +5,7 @@ const cors = require('cors');
 const { send } = require('express/lib/response');
 const port = process.env.PORT || 5000;
 require('dotenv').config();
+// const jwt = require('jsonwebtoken');
 
 // middle-ware
 app.use(cors());
@@ -19,6 +20,7 @@ const run = async () => {
     console.log('db connected');
     const productCollection = client.db("bicycleWarehouse").collection("products")
     const serviceCollection = client.db("bicycleWarehouse").collection("services")
+    const mostSellCollection = client.db("bicycleWarehouse").collection("mostSell")
     try {
         // Get data
         app.get('/products', async (req, res) => {
@@ -30,6 +32,12 @@ const run = async () => {
         app.get('/services', async (req, res) => {
             const query = req.query;
             const result = await serviceCollection.find(query).toArray();
+            res.send(result);
+        })
+
+        app.get('/mostsell', async (req, res) => {
+            const query = req.query;
+            const result = await mostSellCollection.find(query).toArray();
             res.send(result);
         })
         // single data load
