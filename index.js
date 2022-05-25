@@ -88,6 +88,9 @@ const run = async () => {
 }
 run().catch(console.dir);
 
+app.get('/', (req, res) => {
+    res.send("Server is on")
+})
 
 app.listen(port, () => {
     console.log('Server is running');
